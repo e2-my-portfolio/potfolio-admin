@@ -20,5 +20,7 @@ jobs:
           distribution: 'oracle'
           java-version: '17'
           cache: 'gradle'
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
       - name: Gradle build
         run: ./gradlew test
