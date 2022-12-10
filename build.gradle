@@ -24,12 +24,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation platform('org.apache.groovy:groovy-bom:4.0.6')
+	implementation 'com.google.firebase:firebase-admin:9.1.1'
 	implementation 'org.apache.groovy:groovy'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
 
 	// LOMBOK
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
 	// TEST
 	testImplementation platform("org.spockframework:spock-bom:2.3-groovy-4.0")
