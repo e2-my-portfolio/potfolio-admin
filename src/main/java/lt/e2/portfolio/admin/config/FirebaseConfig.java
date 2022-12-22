@@ -47,13 +47,13 @@ public class FirebaseConfig {
     @SneakyThrows
     @PostConstruct
     void initFirebase() {
-        final var resource = new ClassPathResource(properties.authFile());
+        final var resource = new ClassPathResource(properties.getAuthFile());
         final var authFile = new File(resource.getURI());
         try(FileInputStream fileStream = new FileInputStream(authFile)) {
             var firebaseOptions = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(fileStream))
-                    .setDatabaseUrl(properties.databaseUrl())
-                    .setStorageBucket(properties.storageUrl())
+                    .setDatabaseUrl(properties.getDatabaseUrl())
+                    .setStorageBucket(properties.getStorageUrl())
                     .build();
 
             FirebaseApp.initializeApp(firebaseOptions);

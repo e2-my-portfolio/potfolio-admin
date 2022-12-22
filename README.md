@@ -7,11 +7,11 @@ API to create and update data for [e2-my-portfolio-spa](https://github.com/e2-pr
 
 ### Use:
 * [**Java**](https://www.java.com/en/) 17
-* [**Spring-boot**](https://spring.io/projects/spring-boot) 2.7.6
+* [**Spring-boot**](https://spring.io/projects/spring-boot) 3.0.0
 * [**Firebase**](https://firebase.google.com/docs/admin/setup) 9.1.1
 * [**Gradle**](https://gradle.org/)
 * [**Spock**](https://spockframework.org) 2.3-groovy-4.0
-* [**Groovy**](https://groovy-lang.org) 4.0.6
+* [**Groovy**](https://groovy-lang.org)
 
 ---
 
