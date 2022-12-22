@@ -9,10 +9,7 @@ updates:
       day: "monday"
       time: "23:00"
       timezone: "Europe/Vilnius"
-    open-pull-requests-limit: 2
-    ignore:
-      - dependency-name: "org.springframework.boot:*"
-        update-types: [ "version-update:semver-major" ]
+    open-pull-requests-limit: 5
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -20,4 +17,4 @@ updates:
       interval: "monthly"
       time: "23:00"
       timezone: "Europe/Vilnius"
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 5

@@ -1,22 +1,22 @@
 package lt.e2.portfolio.admin.model;
 
-import org.springframework.lang.Nullable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
-import java.util.Map;
+@AllArgsConstructor
+@Builder
+@Getter
+public class Basics implements FirebaseObject {
 
-public record Basics(
-        String name,
-        @Nullable String middleName,
-        String surname,
-        String position,
-        String city,
-        String country,
-        String description,
-        String companyName,
-        String companyUrl) implements FirebaseObject {
+    private String name;
+    private String middleName;
+    private String surname;
+    private String position;
+    private String city;
+    private String country;
+    private String description;
+    private String companyName;
+    private String companyUrl;
 
-    @Override
-    public Map<String, Object> valuesMap() {
-        return null;
-    }
 }

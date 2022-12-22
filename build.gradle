@@ -1,10 +1,10 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.6'
-	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "org.springframework.boot" version "3.0.0"
+	id "io.spring.dependency-management" version "1.1.0"
 }
 
-group = 'lt-e2-my-portfolio'
+group = 'lt.e2-my-portfolio'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -23,10 +23,10 @@ dependencies {
 	// DEPENDENCIES
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation platform('org.apache.groovy:groovy-bom:4.0.6')
+	implementation platform('org.apache.groovy:groovy-bom')
 	implementation 'com.google.firebase:firebase-admin:9.1.1'
 	implementation 'org.apache.groovy:groovy'
-	implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
 
 	// LOMBOK
 	compileOnly 'org.projectlombok:lombok'
@@ -39,7 +39,7 @@ dependencies {
 	testImplementation "org.spockframework:spock-junit4"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	testRuntimeOnly 'net.bytebuddy:byte-buddy:1.12.19'
+	testRuntimeOnly 'net.bytebuddy:byte-buddy:1.12.20'
 	testRuntimeOnly "org.objenesis:objenesis:3.3"
 }
 

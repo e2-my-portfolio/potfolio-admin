@@ -1,12 +1,16 @@
 package lt.e2.portfolio.admin.config.properties;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
 
-@ConstructorBinding
+@Setter
+@Getter
 @ConfigurationProperties("app.firebase")
-public record FirebaseProperties(
-        String authFile,
-        String databaseUrl,
-        String storageUrl
-) { }
+public class FirebaseProperties {
+
+    private String authFile;
+    private String databaseUrl;
+    private String storageUrl;
+
+}
