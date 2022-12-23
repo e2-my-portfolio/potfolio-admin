@@ -8,4 +8,6 @@ public sealed interface BasicsService permits BasicsServiceImpl {
 
     void createBasics(Basics basics);
 
+    void updateBasics(Basics basics);
+
 }

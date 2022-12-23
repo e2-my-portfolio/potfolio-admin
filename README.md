@@ -21,6 +21,7 @@ API to create and update data for [e2-my-portfolio-spa](https://github.com/e2-pr
 3. Set Project SDK to Java 17
 4. Build project `./gradlew build`
 5. Run application `.gradlew bootRun`
+6. Open <u>[Swagger](http://localhost:8080/portfolio/admin/v1/swagger-ui/index.html#/)</u>
 
 ---
 

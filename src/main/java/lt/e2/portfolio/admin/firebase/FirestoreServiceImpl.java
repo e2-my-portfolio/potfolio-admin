@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-final class FirestoreServiceImpl implements FirestoreService {
+final class FirestoreServiceImpl<T extends FirebaseObject> implements FirestoreService<T> {
 
     private final Firestore firestore;
 
@@ -25,32 +25,34 @@ final class FirestoreServiceImpl implements FirestoreService {
         return firestore;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Object get(final String collection, final Class<?> clazz) {
+    public T get(final String collection, final Class<?> clazz) {
         Object object = null;
         var doc = getFirstDocument(collection);
         if (doc != null && doc.exists()) {
             object = doc.toObject(clazz);
         }
-        return object;
+        return (T) object;
     }
 
     @SneakyThrows
     @Override
-    public String create(final String collectionName, final Object object) {
+    public String create(final String collectionName, final T object) {
         String documentId = "";
         ApiFuture<DocumentReference> addedDocRef = firestore.collection(collectionName).add(object);
         try {
             documentId = addedDocRef.get().getId();
         } catch (InterruptedException | ExecutionException e) {
             log.error("Can't save new document to Firestore in {} collection", collectionName, e);
+            Thread.currentThread().interrupt();
             throw new FirestoreSaveException();
         }
         return documentId;
     }
 
     @Override
-    public Object update(String collectionName, FirebaseObject object) {
+    public T update(String collectionName, T object) {
         var valuesMap = object.valuesMap();
         getDocumentReferenceFromCollection(collectionName).update(valuesMap);
         return get(collectionName, object.getClass());
@@ -73,6 +75,7 @@ final class FirestoreServiceImpl implements FirestoreService {
                 snapshot = apiFuture.get();
             } catch (InterruptedException | ExecutionException e) {
                 log.error("Can't fetch document from Firestore from {} collection", collectionName, e);
+                Thread.currentThread().interrupt();
             }
         }
         return snapshot;

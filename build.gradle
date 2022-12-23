@@ -26,7 +26,7 @@ dependencies {
 	implementation platform('org.apache.groovy:groovy-bom')
 	implementation 'com.google.firebase:firebase-admin:9.1.1'
 	implementation 'org.apache.groovy:groovy'
-	implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
 	// LOMBOK
 	compileOnly 'org.projectlombok:lombok'

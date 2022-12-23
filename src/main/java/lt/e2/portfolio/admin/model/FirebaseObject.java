@@ -17,7 +17,6 @@ public interface FirebaseObject {
         return Arrays.stream(this.getClass().getDeclaredFields()).filter(nonNullField()).collect(Collectors.toMap(Field::getName, getValue()));
     }
 
-
     private Predicate<Field> nonNullField() {
         return field -> {
             try {
