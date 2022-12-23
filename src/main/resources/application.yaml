@@ -1,4 +1,4 @@
-# APP
+# SPRING
 spring:
   application:
     name: 'portfolio-admin'
@@ -12,6 +12,13 @@ spring:
       max-file-size: 50MB
       max-request-size: 70MB
 
+# SPRING DOC
+springdoc:
+  api-docs:
+    version: OPENAPI_3_0
+  swagger-ui:
+    use-root-path: true
+
 # SERVER
 server:
   servlet:
@@ -23,3 +30,7 @@ app:
     auth-file: admin-sdk.json
     database-url: ${DB_URL}
     storage-url: ${STORAGE_URL}
+  swagger:
+    version: 1.0.0
+    title: 'Portfolio Admin API'
+    description: 'API to create update data for personal portfolio'

@@ -4,7 +4,7 @@ import com.google.cloud.firestore.Firestore;
 import lt.e2.portfolio.admin.model.FirebaseObject;
 import lt.e2.portfolio.admin.firebase.constant.Collection;
 
-public sealed interface FirestoreService permits FirestoreServiceImpl {
+public sealed interface FirestoreService<T extends FirebaseObject> permits FirestoreServiceImpl {
 
     /** Get Firestore instance
      * @return Firestore instance
@@ -19,10 +19,10 @@ public sealed interface FirestoreService permits FirestoreServiceImpl {
      *                       Use string or Collection constant
      * @param clazz Class in which json document object should be mapped
      * @return Firestore Document
-     * @see Object
+     * @see FirebaseObject
      * @see Collection
      * */
-    Object get(String collectionName, Class<?> clazz);
+    T get(String collectionName, Class<?> clazz);
 
     /**
      * Create new document in Firestore
@@ -30,10 +30,10 @@ public sealed interface FirestoreService permits FirestoreServiceImpl {
      *                       Use string or Collection constant
      * @param object document object which should be created
      * @return Firestore Document ID
-     * @see Object
+     * @see FirebaseObject
      * @see Collection
      * */
-    String create(String collectionName, Object object);
+    String create(String collectionName, T object);
 
     /**
      * Update existing document in Firestore
@@ -41,10 +41,10 @@ public sealed interface FirestoreService permits FirestoreServiceImpl {
      *                       Use string or Collection constant
      * @param object document object which should be created
      * @return Updated Firestore Document
-     * @see Object
+     * @see T
      * @see Collection
      * @see FirebaseObject
      * */
-    Object update(String collectionName, FirebaseObject object);
+    T update(String collectionName, T object);
 
 }
