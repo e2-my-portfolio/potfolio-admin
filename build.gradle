@@ -53,20 +53,3 @@ tasks.named('test') {
 		events "passed", "skipped", "failed"
 	}
 }
-
-tasks.named('processResources') {
-	filesMatching("**/application.yaml") {
-		outputs.upToDateWhen { false }
-
-		filter {
-			it.replace("${project.version}", version as String)
-		}
-		filter {
-			it.replace("${project.name}", name as String)
-		}
-		filter {
-			it.replace("${project.description}", description as String)
-		}
-	}
-}
-
