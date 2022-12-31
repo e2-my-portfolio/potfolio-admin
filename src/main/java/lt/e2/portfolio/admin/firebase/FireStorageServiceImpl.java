@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-final class FireStorageServiceImpl implements FireStorageService {
+class FireStorageServiceImpl implements FireStorageService {
 
     private final Bucket fileBucket;
     private final Storage fileStorage;

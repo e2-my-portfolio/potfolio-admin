@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-final class BasicsServiceImpl implements BasicsService {
+class BasicsServiceImpl implements BasicsService {
 
     private final FirestoreService<Basics> firestoreService;
 

@@ -2,7 +2,7 @@ package lt.e2.portfolio.admin.service.basics;
 
 import lt.e2.portfolio.admin.model.Basics;
 
-public sealed interface BasicsService permits BasicsServiceImpl {
+public interface BasicsService {
 
     Basics getBasics();
 

@@ -17,12 +17,12 @@ final class BasicsController implements BasicsEndpoints {
     }
 
     @Override
-    public void createData(Basics data) {
+    public void createData(final Basics data) {
         service.createBasics(data);
     }
 
     @Override
-    public void updateData(Basics data) {
+    public void updateData(final Basics data) {
         service.updateBasics(data);
     }
 

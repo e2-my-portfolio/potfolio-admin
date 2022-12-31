@@ -31,6 +31,6 @@ app:
     database-url: ${DB_URL}
     storage-url: ${STORAGE_URL}
   swagger:
-    version: 1.0.0
+    version: 0.0.1
     title: 'Portfolio Admin API'
     description: 'API to create update data for personal portfolio'

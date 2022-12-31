@@ -14,10 +14,10 @@ public interface DataManageEndpoints<T> {
 
     @PostMapping
     @Operation(summary = "Create data")
-    void createData(@RequestBody T data);
+    void createData(@RequestBody final T data);
 
     @PutMapping
     @Operation(summary = "Update data")
-    void updateData(@RequestBody T data);
+    void updateData(@RequestBody final T data);
 
 }
