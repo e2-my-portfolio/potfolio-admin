@@ -4,7 +4,7 @@ import com.google.cloud.firestore.Firestore;
 import lt.e2.portfolio.admin.model.FirebaseObject;
 import lt.e2.portfolio.admin.firebase.constant.Collection;
 
-public sealed interface FirestoreService<T extends FirebaseObject> permits FirestoreServiceImpl {
+public interface FirestoreService<T extends FirebaseObject> {
 
     /** Get Firestore instance
      * @return Firestore instance

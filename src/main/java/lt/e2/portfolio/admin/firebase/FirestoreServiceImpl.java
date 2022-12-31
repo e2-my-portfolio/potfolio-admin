@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-final class FirestoreServiceImpl<T extends FirebaseObject> implements FirestoreService<T> {
+class FirestoreServiceImpl<T extends FirebaseObject> implements FirestoreService<T> {
 
     private final Firestore firestore;
 

@@ -1,27 +1,29 @@
 package lt.e2.portfolio.admin.model
 
+import static lt.e2.portfolio.admin.TestConstants.*
+
 import spock.lang.Specification
 
 class BasicsSpec extends Specification {
 
     def "Should create not empty values map"() {
         given:
-            FirebaseObject object = new Basics(
-                    "Jack",
-                    null,
-                    "Sparrow",
-                    "Captain",
+            final FirebaseObject object = new Basics(
+                    NAME,
+                    MIDDLE_NAME,
+                    SURNAME,
+                    POSITION,
                     "",
                     "",
-                    "Pirate",
+                    DESCRIPTION,
                     "",
                     "")
 
             final expectation = new HashMap()
-            expectation.put("name", "Jack")
-            expectation.put("surname", "Sparrow")
-            expectation.put("position", "Captain")
-            expectation.put("description", "Pirate")
+            expectation.put("name", NAME)
+            expectation.put("surname", SURNAME)
+            expectation.put("position", POSITION)
+            expectation.put("description", DESCRIPTION)
         when:
             final def result = object.valuesMap()
         then:

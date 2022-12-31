@@ -1,12 +1,15 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.0.0"
+	id "org.springframework.boot" version "3.0.1"
 	id "io.spring.dependency-management" version "1.1.0"
 }
 
 group = 'lt.e2-my-portfolio'
-version = '0.0.1-SNAPSHOT'
+def name = 'Portfolio Admin API'
+version = '0.0.1'
+description = 'API to create update data for personal portfolio'
 sourceCompatibility = '17'
+
 
 configurations {
 	compileOnly {
@@ -35,6 +38,7 @@ dependencies {
 
 	// TEST
 	testImplementation platform("org.spockframework:spock-bom:2.3-groovy-4.0")
+	testImplementation 'org.spockframework:spock-spring:2.3-groovy-4.0'
 	testImplementation "org.spockframework:spock-core"
 	testImplementation "org.spockframework:spock-junit4"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
