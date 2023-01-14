@@ -26,7 +26,7 @@ class BasicsControllerSpec extends Specification {
         final def result = controller.getData()
 
         then:
-        1 * basicsService.getBasics() >> mock
+        1 * basicsService.getData() >> mock
 
         and:
         mock == result
@@ -40,7 +40,7 @@ class BasicsControllerSpec extends Specification {
         controller.createData(request)
 
         then:
-        1 * basicsService.createBasics(request)
+        1 * basicsService.createData(request)
     }
 
     def "update basic data"() {
@@ -51,7 +51,7 @@ class BasicsControllerSpec extends Specification {
         controller.updateData(request)
 
         then:
-        1 * basicsService.updateBasics(request)
+        1 * basicsService.updateData(request)
     }
 
     private Basics mockBasicData() {
