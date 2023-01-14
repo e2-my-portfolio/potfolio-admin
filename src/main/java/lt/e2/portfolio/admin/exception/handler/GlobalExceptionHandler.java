@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 @Slf4j
 @ControllerAdvice
@@ -21,7 +22,11 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
-    @ExceptionHandler(FirestoreSaveException.class)
+    @ExceptionHandler({
+            InterruptedException.class,
+            ExecutionException.class,
+            FirestoreSaveException.class
+    })
     void handleFirestoreException() {
         log.error("Firestore execution failed");
     }

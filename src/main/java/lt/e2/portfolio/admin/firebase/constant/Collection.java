@@ -6,5 +6,6 @@ import lombok.experimental.UtilityClass;
 public class Collection {
 
     public static final String BASICS = "basics";
+    public static final String STORIES = "stories";
 
 }
