@@ -29,7 +29,7 @@ class BasicsServiceSpec extends Specification {
         final def basics = mockBasics()
 
         when:
-        final def result = service.getBasics()
+        final def result = service.getData()
 
         then:
         1 * firestoreService.get(Collection.BASICS, Basics.class) >> basics
@@ -43,7 +43,7 @@ class BasicsServiceSpec extends Specification {
         final def basics = mockBasics()
 
         when:
-        service.createBasics(basics)
+        service.createData(basics)
 
         then:
         1 * firestoreService.create(Collection.BASICS, basics)
@@ -54,7 +54,7 @@ class BasicsServiceSpec extends Specification {
         final def basics = mockBasics()
 
         when:
-        service.updateBasics(basics)
+        service.updateData(basics)
 
         then:
         1 * firestoreService.update(Collection.BASICS, basics)

@@ -15,18 +15,17 @@ class BasicsServiceImpl implements BasicsService {
     private final FirestoreService<Basics> firestoreService;
 
     @Override
-    public Basics getBasics() {
+    public Basics getData() {
         return firestoreService.get(Collection.BASICS, Basics.class);
     }
 
     @Override
-    public void createBasics(Basics basics) {
-        firestoreService.create(Collection.BASICS, basics);
+    public String createData(Basics data) {
+        return firestoreService.create(Collection.BASICS, data);
     }
 
     @Override
-    public void updateBasics(Basics basics) {
-        firestoreService.update(Collection.BASICS, basics);
+    public Basics updateData(Basics data) {
+        return firestoreService.update(Collection.BASICS, data);
     }
-
 }
