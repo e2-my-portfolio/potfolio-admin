@@ -32,5 +32,5 @@ API to create and update data for [e2-my-portfolio-spa](https://github.com/e2-pr
 * [GitHub](https://github.com/Dum6o)
 * [Linkedin](https://www.linkedin.com/in/edvardasjusius/)
 
-Copyright © 2022, [Edvardas Jusius](https://github.com/Dum6o)
+Copyright © 2023, [Edvardas Jusius](https://github.com/Dum6o)
 <!--Released under the [MIT License](LICENSE).-->
