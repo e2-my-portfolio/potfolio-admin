@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 @Slf4j
+@SuppressWarnings("unused")
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
