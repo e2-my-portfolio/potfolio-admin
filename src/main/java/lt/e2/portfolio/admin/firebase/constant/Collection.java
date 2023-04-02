@@ -9,4 +9,6 @@ public class Collection {
     public static final String STORIES = "stories";
     public static final String SKILLS = "skills";
 
+    public static final String EXPERIENCES = "experiences";
+
 }
