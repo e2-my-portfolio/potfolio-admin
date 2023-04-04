@@ -10,5 +10,5 @@ import java.util.List;
 @RestController
 @Tag(name="Experiences", description = "Experiences / Working places for portfolio 'Experiences' page")
 
-public sealed interface ExperiencesEndpoints  extends DataManageEndpoints<List<Experience>> permits ExperienceController {
+public sealed interface ExperiencesEndpoints  extends DataManageEndpoints<List<Experience>> permits ExperiencesController {
 }
