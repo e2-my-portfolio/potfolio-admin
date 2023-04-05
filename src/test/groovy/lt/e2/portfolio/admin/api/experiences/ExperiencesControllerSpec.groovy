@@ -1,8 +1,6 @@
 package lt.e2.portfolio.admin.api.experiences
 
-import lt.e2.portfolio.admin.model.Company
-import lt.e2.portfolio.admin.model.Experience
-import lt.e2.portfolio.admin.model.Project
+import lt.e2.portfolio.admin.TestUtils
 import lt.e2.portfolio.admin.service.experiences.ExperiencesService
 import spock.lang.Specification
 import spock.lang.Subject
@@ -20,7 +18,7 @@ class ExperiencesControllerSpec extends Specification {
 
     def "get experiences data"() {
         given:
-        final def mock = mockExperiences()
+        final def mock = TestUtils.mockExperiences()
 
         when:
         final def result = controller.getData()
@@ -34,7 +32,7 @@ class ExperiencesControllerSpec extends Specification {
 
     def "create experiences data"() {
         given:
-        final def request = mockExperiences()
+        final def request = TestUtils.mockExperiences()
 
         when:
         final def result = controller.createData(request)
@@ -48,7 +46,7 @@ class ExperiencesControllerSpec extends Specification {
 
     def "update experience data"() {
         given:
-        final def request = mockExperiences()
+        final def request = TestUtils.mockExperiences()
 
         when:
         final def response = controller.updateData(request)
@@ -60,16 +58,4 @@ class ExperiencesControllerSpec extends Specification {
         response == Collections.emptyList()
     }
 
-    private List<Experience> mockExperiences() {
-        final def company = new Company("Company", "USA")
-        final def project = new Project("Project", "My project")
-        List.of(Experience.builder()
-                .company(company)
-                .position("Position")
-                .projects(List.of(project))
-                .stack("Some languages and frameworks")
-                .startDate("2023-01")
-                .build()
-        )
-    }
 }

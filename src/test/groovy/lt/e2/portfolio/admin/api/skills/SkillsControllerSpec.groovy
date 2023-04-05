@@ -1,7 +1,6 @@
 package lt.e2.portfolio.admin.api.skills
 
-import lt.e2.portfolio.admin.model.Skill
-import lt.e2.portfolio.admin.model.SkillsGroup
+import lt.e2.portfolio.admin.TestUtils
 import lt.e2.portfolio.admin.service.skills.SkillsService
 import spock.lang.Specification
 import spock.lang.Subject
@@ -19,7 +18,7 @@ class SkillsControllerSpec extends Specification {
 
     def "get skills data"() {
         given:
-        final def mock = mockSkillsData()
+        final def mock = TestUtils.mockSkills()
 
         when:
         final def result = controller.getData()
@@ -33,7 +32,7 @@ class SkillsControllerSpec extends Specification {
 
     def "create skills data"() {
         given:
-        final def request = mockSkillsData()
+        final def request = TestUtils.mockSkills()
 
         when:
         final def result = controller.createData(request)
@@ -47,7 +46,7 @@ class SkillsControllerSpec extends Specification {
 
     def "update skills data"() {
         given:
-        final def request = mockSkillsData()
+        final def request = TestUtils.mockSkills()
 
         when:
         final def response = controller.updateData(request)
@@ -59,20 +58,4 @@ class SkillsControllerSpec extends Specification {
         response == Collections.emptyList()
     }
 
-    private List<SkillsGroup> mockSkillsData() {
-        final var skill1 = Skill.builder()
-            .name("Skill 1")
-            .level(5)
-            .build()
-        final var skill2 = Skill.builder()
-                .name("Skill 2")
-                .level(1)
-                .build()
-        return List.of(
-                new SkillsGroup(null,
-                        "Skills Group",
-                        null,
-                        List.of(skill1, skill2))
-        )
-    }
 }

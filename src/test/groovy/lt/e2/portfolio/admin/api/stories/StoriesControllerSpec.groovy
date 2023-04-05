@@ -1,6 +1,6 @@
 package lt.e2.portfolio.admin.api.stories
 
-import lt.e2.portfolio.admin.model.Stories
+import lt.e2.portfolio.admin.TestUtils
 import lt.e2.portfolio.admin.service.stories.StoriesService
 import spock.lang.Specification
 
@@ -16,7 +16,7 @@ class StoriesControllerSpec extends Specification {
 
     def "get stories data"() {
         given:
-        final def mock = mockStoriesData()
+        final def mock = TestUtils.mockStories()
 
         when:
         final def result = controller.getData()
@@ -30,7 +30,7 @@ class StoriesControllerSpec extends Specification {
 
     def "create stories data"() {
         given:
-        final def request = mockStoriesData()
+        final def request = TestUtils.mockStories()
 
         when:
         final def result = controller.createData(request)
@@ -44,7 +44,7 @@ class StoriesControllerSpec extends Specification {
 
     def "update stories data"() {
         given:
-        final def request = mockStoriesData()
+        final def request = TestUtils.mockStories()
 
         when:
         final def response = controller.updateData(request)
@@ -56,10 +56,4 @@ class StoriesControllerSpec extends Specification {
         response == Collections.emptyList()
     }
 
-    private List<Stories> mockStoriesData() {
-        return List.of(
-                new Stories("id1", "Story 1", "My story 1"),
-                new Stories("id1", "Story 2", "My story 2")
-        )
-    }
 }
