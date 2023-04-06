@@ -21,12 +21,13 @@ public class ExperiencesServiceImpl implements ExperiencesService {
     @SneakyThrows
     @Override
     public List<Experience> getData() {
-        final var firestore = firestoreService.getFirestore();
-        final var documentFuture = firestore.collection(Collection.EXPERIENCES).get();
-        return documentFuture.get().getDocuments()
-                .stream()
-                .map(snapshot -> snapshot.toObject(Experience.class))
-                .toList();
+        return firestoreService.getCollection(Collection.EXPERIENCES)
+            .get()
+            .get()
+            .getDocuments()
+            .stream()
+            .map(snapshot -> snapshot.toObject(Experience.class))
+            .toList();
     }
 
     @Override

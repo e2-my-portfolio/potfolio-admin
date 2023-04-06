@@ -1,8 +1,5 @@
 package lt.e2.portfolio.admin.service.stories;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +21,7 @@ class StoriesServiceImpl implements StoriesService {
     @SneakyThrows
     @Override
     public List<Stories> getData() {
-        var firestore = firestoreService.getFirestore();
-        ApiFuture<QuerySnapshot> querySnapshot = firestore.collection(Collection.STORIES).get();
-        return querySnapshot
+        return firestoreService.getCollection(Collection.STORIES).get()
                 .get()
                 .getDocuments()
                 .stream()

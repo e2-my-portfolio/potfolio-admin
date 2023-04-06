@@ -22,12 +22,14 @@ class SkillsServiceImpl implements SkillsService {
     @SneakyThrows
     @Override
     public List<SkillsGroup> getData() {
-        final var firestore = firestoreService.getFirestore();
-        final var documentFuture = firestore.collection(Collection.SKILLS).orderBy("order").get();
-        return documentFuture.get().getDocuments()
-                .stream()
-                .map(snapshot -> snapshot.toObject(SkillsGroup.class))
-                .toList();
+        return firestoreService.getCollection(Collection.SKILLS)
+            .orderBy("order")
+            .get()
+            .get()
+            .getDocuments()
+            .stream()
+            .map(snapshot -> snapshot.toObject(SkillsGroup.class))
+            .toList();
     }
 
     @Override

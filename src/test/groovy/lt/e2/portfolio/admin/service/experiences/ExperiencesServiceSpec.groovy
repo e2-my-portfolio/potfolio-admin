@@ -18,18 +18,29 @@ class ExperiencesServiceSpec extends Specification {
     service = new ExperiencesServiceImpl(firestoreService)
   }
 
-  def "call firestore service when getting experiences data"() {
+  def "call firestore service once when creating experiences data"() {
     given:
     final def experiences = TestUtils.mockExperiences()
 
     when:
-    final def result = service.getData()
+    final def result = service.createData(experiences)
 
     then:
-    1 * firestoreService.get("experiences", Experience.class) >> experiences
+    1 * firestoreService.create("experiences", experiences.get(0)) >> "1"
 
     and:
-    experiences == result
+    "ID: 1;" == result
+  }
+
+  def "call firestore service once when updating experiences data"() {
+    given:
+    final def experiences = TestUtils.mockExperiences()
+
+    when:
+    final def result = service.updateData(experiences)
+
+    then:
+    0 == result.size()
   }
 
 }
