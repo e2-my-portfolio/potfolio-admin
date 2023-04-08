@@ -1,13 +1,16 @@
 package lt.e2.portfolio.admin.firebase;
 
 import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QuerySnapshot;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import lt.e2.portfolio.admin.exception.FirestoreSaveException;
+import lt.e2.portfolio.admin.firebase.constant.Collection;
 import lt.e2.portfolio.admin.model.FirebaseObject;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +59,11 @@ class FirestoreServiceImpl<T extends FirebaseObject> implements FirestoreService
         var valuesMap = object.valuesMap();
         getDocumentReferenceFromCollection(collectionName).update(valuesMap);
         return get(collectionName, object.getClass());
+    }
+
+    @Override
+    public CollectionReference getCollection(final String collectionName) {
+        return firestore.collection(Collection.STORIES);
     }
 
     private DocumentSnapshot getFirstDocument(String collectionName) {

@@ -1,17 +1,11 @@
 package lt.e2.portfolio.admin.service.basics
 
+import lt.e2.portfolio.admin.TestUtils
 import lt.e2.portfolio.admin.firebase.FirestoreService
 import lt.e2.portfolio.admin.firebase.constant.Collection
 import lt.e2.portfolio.admin.model.Basics
-import lt.e2.portfolio.admin.model.FirebaseObject
 import spock.lang.Specification
 import spock.lang.Subject
-
-import static lt.e2.portfolio.admin.TestConstants.DESCRIPTION
-import static lt.e2.portfolio.admin.TestConstants.MIDDLE_NAME
-import static lt.e2.portfolio.admin.TestConstants.NAME
-import static lt.e2.portfolio.admin.TestConstants.POSITION
-import static lt.e2.portfolio.admin.TestConstants.SURNAME
 
 class BasicsServiceSpec extends Specification {
 
@@ -26,7 +20,7 @@ class BasicsServiceSpec extends Specification {
 
     def "call firestore service when getting basics data"() {
         given:
-        final def basics = mockBasics()
+        final def basics = TestUtils.mockBasics()
 
         when:
         final def result = service.getData()
@@ -40,7 +34,7 @@ class BasicsServiceSpec extends Specification {
 
     def "call firestore service once when creating basics data"() {
         given:
-        final def basics = mockBasics()
+        final def basics = TestUtils.mockBasics()
 
         when:
         service.createData(basics)
@@ -51,26 +45,13 @@ class BasicsServiceSpec extends Specification {
 
     def "call firestore service once when updating basics data"() {
         given:
-        final def basics = mockBasics()
+        final def basics = TestUtils.mockBasics()
 
         when:
         service.updateData(basics)
 
         then:
         1 * firestoreService.update(Collection.BASICS, basics)
-    }
-
-    private Basics mockBasics() {
-        return new Basics(
-                NAME,
-                MIDDLE_NAME,
-                SURNAME,
-                POSITION,
-                "",
-                "",
-                DESCRIPTION,
-                "",
-                "")
     }
 
 }
