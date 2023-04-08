@@ -1,11 +1,11 @@
 package lt.e2.portfolio.admin.service.experiences
 
 import lt.e2.portfolio.admin.TestUtils
-import spock.lang.Subject;
+import spock.lang.Subject
 
-import lt.e2.portfolio.admin.firebase.FirestoreService;
-import lt.e2.portfolio.admin.model.Experience;
-import spock.lang.Specification;
+import lt.e2.portfolio.admin.firebase.FirestoreService
+import lt.e2.portfolio.admin.model.Experience
+import spock.lang.Specification
 
 class ExperiencesServiceSpec extends Specification {
 
