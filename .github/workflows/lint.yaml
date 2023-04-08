@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Lint Code Base
-        uses: github/super-linter/slim@v4.9.7
+        uses: e2-actions/super-linter/slim@v4.9.7
         env:
           LINTER_RULES_PATH: /
           VALIDATE_ALL_CODEBASE: true

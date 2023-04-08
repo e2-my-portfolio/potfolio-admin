@@ -1,5 +1,6 @@
 package lt.e2.portfolio.admin.firebase;
 
+import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.Firestore;
 import lt.e2.portfolio.admin.model.FirebaseObject;
 import lt.e2.portfolio.admin.firebase.constant.Collection;
@@ -46,5 +47,7 @@ public interface FirestoreService<T extends FirebaseObject> {
      * @see FirebaseObject
      * */
     T update(String collectionName, T object);
+
+    CollectionReference getCollection(String collectionName);
 
 }
