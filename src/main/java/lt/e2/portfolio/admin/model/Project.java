@@ -1,7 +1,14 @@
 package lt.e2.portfolio.admin.model;
 
-import lombok.Builder;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public record Project(String name, String description) implements FirebaseObject {
+@Getter
+public class Project implements FirebaseObject {
+
+    private String name;
+    private String description;
+
 }
