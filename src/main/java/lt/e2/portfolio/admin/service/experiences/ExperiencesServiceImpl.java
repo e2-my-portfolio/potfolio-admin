@@ -33,11 +33,12 @@ public class ExperiencesServiceImpl implements ExperiencesService {
     @Override
     public String createData(List<Experience> data) {
         StringBuilder builder = new StringBuilder();
-        data.forEach(object ->
+        data.forEach(object -> {
+            log.warn(object.toString());
             builder.append("ID: ")
                     .append(firestoreService.create(Collection.EXPERIENCES, object))
-                    .append("; ")
-        );
+                    .append("; ");
+        });
         return builder.toString().trim();
     }
 
