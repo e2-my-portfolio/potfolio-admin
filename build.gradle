@@ -44,7 +44,7 @@ dependencies {
 	testImplementation "org.spockframework:spock-junit4"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	testRuntimeOnly 'net.bytebuddy:byte-buddy:1.14.4'
+	testRuntimeOnly 'net.bytebuddy:byte-buddy:1.14.5'
 	testRuntimeOnly "org.objenesis:objenesis:3.3"
 }
 
